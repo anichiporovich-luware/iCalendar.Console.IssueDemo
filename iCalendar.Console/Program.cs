@@ -7,16 +7,15 @@ namespace iCalendar.Console
     {
         static void Main(string[] args)
         {
-            // not a Monday (see RRULE below), then why this date is a part of GetOccurrences result?
-            var now = DateTimeOffset.Parse("2020-08-07T11:31:38.1222194+00:00");
+            var now = DateTimeOffset.Parse("2020-08-09");
             var demo = new Demo();
-            var count = 0;
-            var maxCount = 100;
-            while (count < maxCount)
+            var daysShifted = 0;
+            var maxDaysShifted = 15;
+            while (daysShifted < maxDaysShifted)
             {
                 System.Console.WriteLine($"{now.Date.ToShortDateString()} - {demo.GetStatus(now)}");
                 now = now.AddDays(1);
-                count++;
+                daysShifted++;
             }
             System.Console.WriteLine("Press [Enter] to exit.");
             System.Console.ReadLine();
